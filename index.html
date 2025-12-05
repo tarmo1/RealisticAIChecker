@@ -1,0 +1,84 @@
+<html>
+<body>
+  <head>
+    <style>
+      body {
+margin:0 auto;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(#dedede 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.container {
+  text-align: center;
+  margin: 0;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #212121;
+  width: 300px;
+  
+  border-radius: 15px;
+  color: white;
+}
+input {
+  width: 250px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+.button {
+  border-radius: 0px;
+  border: 1px solid white;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  color: #212121;
+  background: white;
+  width: 60px;
+  height: 30px;
+}
+a {
+color:red;
+}
+    </style>
+    <script>
+function enableSubmit(){
+let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
+let btn = document.querySelector('input[type="submit"]');
+let isValid = true;
+for (var i = 0; i < inputs.length; i++){
+let changedInput = inputs[i];
+if (changedInput.value.trim() === "" || changedInput.value === null){
+isValid = false;
+break;
+}
+}
+btn.disabled = !isValid;
+}
+
+ 
+
+         document.getElementByClassName("button").onclick = function(){
+            document.getElementClassName("some-text").innerHTML = "Fantastic!";
+            
+            }
+        
+
+</script>
+  </head>
+  
+  <div class="container">
+    <p class=”some-text”>There is a <a>50%</a> chance that the text was written by AI</p> 
+<form action="#" method="post">
+<input type="text" class="required" onkeyup="enableSubmit()">
+  <br>
+<input class="button" type="submit" value="Check" disabled>
+</form>
+    
+    <button>Check</button>
+  
+  </div>
+  
+  </body>
+</html>
