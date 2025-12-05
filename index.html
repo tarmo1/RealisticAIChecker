@@ -1,11 +1,17 @@
 <html>
 <body>
   <head>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
       body {
 margin:0 auto;
   inset: 0;
   height: 100%;
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
   background-image: radial-gradient(#dedede 1px, transparent 1px);
   background-size: 30px 30px;
@@ -14,71 +20,103 @@ margin:0 auto;
   text-align: center;
   margin: 0;
   position:absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #212121;
-  width: 300px;
-  
+  width: 40%;  
   border-radius: 15px;
   color: white;
 }
-input {
-  width: 250px;
-  height: 100px;
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    
+  }
+}
+
+textarea {
+  width: 75%;
+  height: 120px;
   margin-bottom: 15px;
+  text-align: top;
+  background: #333333;
+  border: 2px solid #393939;
+  border-radius: 5px;
+  color: white;
+  resize: none;
+}
+::placeholder {
+   text-align: center; 
+   line-height:100px;
+}
+p {
+  padding: 10px;
 }
 .button {
   border-radius: 0px;
   border: 1px solid white;
   padding: 5px 10px;
-  margin-bottom: 15px;
+  margin: 10px;
   color: #212121;
   background: white;
   width: 60px;
   height: 30px;
 }
-a {
-color:red;
+.button:disabled {
+  opacity: 0.5;
+  border: 1px solid #cccccc;
+  cursor: not-allowed;
+  background: #cccccc;
+  color: #666666;
 }
+
     </style>
     <script>
+
 function enableSubmit(){
-let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
-let btn = document.querySelector('input[type="submit"]');
-let isValid = true;
-for (var i = 0; i < inputs.length; i++){
-let changedInput = inputs[i];
-if (changedInput.value.trim() === "" || changedInput.value === null){
-isValid = false;
-break;
-}
-}
-btn.disabled = !isValid;
+    let inputs = document.getElementsByClassName('textfield');
+    let btn = document.querySelector('input[type="submit"]');
+    let isValid = true;
+    for (var i = 0; i < inputs.length; i++){
+        let changedInput = inputs[i];
+        if (changedInput.value.trim() === "" || changedInput.value === null){
+            isValid = false;
+            break;
+        }
+    }
+    btn.disabled = !isValid;
+    
+    
+    document.getElementById('text').innerHTML = 'Enter text:';
 }
 
- 
-
-         document.getElementByClassName("button").onclick = function(){
-            document.getElementClassName("some-text").innerHTML = "Fantastic!";
-            
-            }
-        
+function displaytext(){
+    document.getElementById('text').innerHTML = 'Checking....';
+    
+    let btn = document.querySelector('input[type="submit"]');
+    btn.disabled = true;
+    
+    setTimeout(function() {
+        document.getElementById('text').innerHTML = 'There is a <span style="color: #eb4034;">50%</span> chance that the text is AI generated';
+        btn.disabled = false;
+    }, 1500);
+}
 
 </script>
   </head>
   
+
   <div class="container">
-    <p class=”some-text”>There is a <a>50%</a> chance that the text was written by AI</p> 
-<form action="#" method="post">
-<input type="text" class="required" onkeyup="enableSubmit()">
-  <br>
-<input class="button" type="submit" value="Check" disabled>
-</form>
-    
-    <button>Check</button>
-  
+    <p id="text">Enter text:</p> 
+    <form action="#" method="post" onsubmit="return false;">
+        <textarea placeholder="realisticaichecker.com" class="textfield" rows="4" onkeyup="enableSubmit()"></textarea>
+        <br>
+        <input class="button" onclick="displaytext()" type="submit" value="Check" disabled>
+        </form>
   </div>
+  
   
   </body>
 </html>
