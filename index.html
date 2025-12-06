@@ -1,7 +1,7 @@
 <html>
 <body>
   <head>
- 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -54,19 +54,25 @@ textarea {
 p {
   padding: 10px;
 }
-      .githublink {
+      .githublink, a {
         color: #333333;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 0px 10px;
+        text-align: right;
+        position: relative;
       }
 .button {
   border-radius: 0px;
   border: 1px solid white;
   padding: 5px 10px;
-  margin: 10px;
+  margin-top:5px;
   color: #212121;
   background: white;
   width: 60px;
   height: 30px;
 }
+
 .button:disabled {
   opacity: 0.5;
   border: 1px solid #cccccc;
@@ -117,8 +123,9 @@ function displaytext(){
         <textarea placeholder="realisticaichecker" class="textfield" rows="4" onkeyup="enableSubmit()"></textarea>
         <br>
         <input class="button" onclick="displaytext()" type="submit" value="Check" disabled>
+       <p class="githublink"><a href="https://github.com/tarmo1/RealisticAIChecker"><i class="fa fa-github" style="font-size:15px;color:white"></i></a></p>
         </form>
-    <p class="githublink"><a href="https://github.com/tarmo1/RealisticAIChecker"><i class="fa fa-github" style="font-size:15px;color:white"></i>github</a></p>
+   
   </div>
   
   
